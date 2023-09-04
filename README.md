@@ -25,13 +25,13 @@ sys	0m0.016s
 ```
 **Note**: default tunnel timeout is used (`5s`)
 
-## Change route to unsecure
+## Change route to unsecured
 
 ```bash
-$ oc apply -f ./unsecure-route.yaml
+$ oc apply -f ./unsecured-route.yaml
 ```
 
-## Run test client targeting unsecure route
+## Run test client targeting unsecured route
 ```bash
 $ ./run-cli.sh
 WebSocket Client Connected
