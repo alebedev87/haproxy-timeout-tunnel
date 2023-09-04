@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    haproxy.router.openshift.io/timeout-tunnel: 15s
+  labels:
+    app: hello-openshift
+    app.kubernetes.io/component: hello-openshift
+    app.kubernetes.io/instance: hello-openshift
+  name: hello-openshift
+  namespace: tunnel-timeout
+spec:
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: hello-openshift
+    weight: 100
+  wildcardPolicy: None
+  tls:
+    termination: edge
