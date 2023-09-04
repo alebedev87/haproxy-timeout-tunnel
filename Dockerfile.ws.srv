@@ -1,0 +1,8 @@
+FROM registry.access.redhat.com/ubi8/ubi
+
+RUN yum install -y nodejs
+RUN npm install websocket
+
+WORKDIR /app
+COPY websocket-srv.js /app/websocket-srv.js
+ENTRYPOINT ["/app/websocket-srv.js"]
