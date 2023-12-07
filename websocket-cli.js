@@ -8,8 +8,10 @@ const send = process.env.SEND || false;
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 var WebSocketClient = require('websocket').client;
-
-var client = new WebSocketClient();
+var config = {
+    keepalive: false
+}
+var client = new WebSocketClient(config);
 
 client.on('connectFailed', function(error) {
     console.log('Connect Error: ' + error.toString());
