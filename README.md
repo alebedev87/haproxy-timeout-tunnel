@@ -32,6 +32,7 @@ $ oc apply -f ./unsecured-route.yaml
 ```
 
 ## Run test client targeting unsecured route
+
 ```bash
 $ ./run-cli.sh
 WebSocket Client Connected
@@ -42,3 +43,22 @@ user	0m0.103s
 sys	0m0.022
 ```
 **Note**: route's tunnel timeout is used (`15s`)
+
+## Setting the timeout to higher values
+
+By default the test client does not send anything and has keepalives disabled.
+That makes it a subject for the router's client timeout which is set to `30s` by default.   
+Therefore the client timeout needs to be increased in order to test the tunnel timeout higher than `30s`:
+```bash
+oc explain ingresscontroller.spec.tuningOptions.clientTimeout
+GROUP:      operator.openshift.io
+KIND:       IngressController
+VERSION:    v1
+
+FIELD: clientTimeout <string>
+
+DESCRIPTION:
+    clientTimeout defines how long a connection will be held open while waiting
+    for a client response.
+     If unset, the default timeout is 30s
+```
