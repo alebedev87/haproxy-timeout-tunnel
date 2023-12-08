@@ -4,12 +4,13 @@ const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 8080;
 const scheme = process.env.SCHEME || 'ws';
 const send = process.env.SEND || false;
+const keepalive = process.env.KEEPALIVE || false;
 
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 var WebSocketClient = require('websocket').client;
 var config = {
-    keepalive: false
+    keepalive: keepalive
 }
 var client = new WebSocketClient(config);
 

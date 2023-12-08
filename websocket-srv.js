@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const port = process.env.PORT || 8080;
+const keepalive = process.env.KEEPALIVE || false;
 
 var WebSocketServer = require('websocket').server;
 var http = require('http');
@@ -24,7 +25,7 @@ wsServer = new WebSocketServer({
     autoAcceptConnections: false,
     // If keepalive is enabled it sends a ping even 20s
     // which limits the test's timeouts to be smaller
-    keepalive: false
+    keepalive: keepalive
 });
 
 function originIsAllowed(origin) {

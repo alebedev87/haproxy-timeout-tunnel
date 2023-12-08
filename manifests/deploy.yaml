@@ -25,7 +25,7 @@ spec:
         deployment: hello-openshift
     spec:
       containers:
-      - image: quay.io/alebedev/wssrv:12.7.212
+      - image: quay.io/alebedev/wssrv:12.8.110
         imagePullPolicy: IfNotPresent
         name: srv
         ports:
