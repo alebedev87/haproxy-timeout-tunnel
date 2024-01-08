@@ -23,7 +23,7 @@ wsServer = new WebSocketServer({
     // *always* verify the connection's origin and decide whether or not
     // to accept it.
     autoAcceptConnections: false,
-    // If keepalive is enabled it sends a ping even 20s
+    // If keepalive is enabled it sends a ping every 20s
     // which limits the test's timeouts to be smaller
     keepalive: keepalive
 });
