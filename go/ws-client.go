@@ -22,12 +22,12 @@ func main() {
 		log.Fatal("Error sending message:", err)
 	}
 
-	fmt.Printf("Sent message: %s\n", message)
+	log.Printf("Sent message: %s\n", message)
 
-	_, response, err := conn.ReadMessage()
+	mtype, response, err := conn.ReadMessage()
 	if err != nil {
 		log.Fatal("Error reading response:", err)
 	}
 
-	fmt.Printf("Received response: %s\n", response)
+	log.Printf("Received response: %s (%d)\n", response, mtype)
 }
