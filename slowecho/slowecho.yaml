@@ -51,3 +51,5 @@ spec:
     name: echoserver
     weight: 100
   wildcardPolicy: None
+  tls:
+    termination: edge
